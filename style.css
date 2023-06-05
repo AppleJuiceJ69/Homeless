@@ -1,0 +1,638 @@
+* {
+    
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    /* font-family: 'Montserrat', sans-serif; this is for the nav bar*/
+  }
+  #index-body{
+    background-image: url(/images/pexels-oliver-sjöström-1078981.jpg);
+    background-size: cover;
+    background-position: center;
+
+  }
+  #canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+/* Nav bar */
+
+#nav-header{
+display: flex;
+list-style-type: none;
+color: white;
+text-decoration: none;
+justify-content: end;
+background-color: rgba(255,255,255,.8);
+flex-wrap: wrap;
+padding: 1.2rem;
+margin-bottom: 2rem;
+
+}
+
+
+@media screen and (max-width: 751px) {
+  #nav-header{
+    display: flex;
+    flex-direction: column;
+   position: relative;
+   gap: 1rem;
+   align-items: end;
+   
+   
+  }
+}
+@media screen and (max-width: 751px) {
+  #nav-header a{
+    gap: 2rem;
+   
+  }
+}
+#nav-header .active {
+    color: blue; /* Change this to the desired color for the active page */
+  }
+#nav-header a{
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    padding: 2rem;
+}
+  #nav-header li:first-child {
+    margin-right: auto;
+    cursor: none;
+    
+    
+  }
+  #nav-header li:first-child a{
+    font-size: 1.3rem;
+    font-weight: bolder;
+    
+  }
+
+  #nav-links {
+    display: flex;
+}
+
+#nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+#nav-toggle div {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 3px;
+    transition: all 0.3s ease-in-out;
+}
+#nav-toggle:hover{
+  
+}
+
+h3{
+  display: block;
+}
+h3:hover{
+  font-size: 0;
+}
+
+h3:hover:after{
+ content: attr(data-hover);
+ font-size: 1.2rem;
+ color: blue;
+}
+/*hamburger menu 
+
+/* Hamburger menu animation */
+
+
+
+/*dropdown section*/
+
+.dropdown a{
+  color: red;
+}
+
+
+
+
+
+
+/* ---------content---------------------------*/
+h1{
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-shadow: 3px 3px 3px  rgba(0, 0, 0, .3);
+    font-size: 3rem;
+    
+}
+
+#border-content{
+    display: block;
+    border: 1px solid black;
+    
+    background-color: #f5f5f5;
+}
+
+
+#content-grid{
+   
+    width: 40rem;
+    font-size: 2rem;
+    margin: auto;
+    display: flex;
+    padding-bottom: 8rem;
+    padding-top: 5rem;
+    
+}
+
+.fa-heart{
+  color: red;
+  
+}
+#image-container{
+   
+    padding-left: 2rem;
+    border-radius: 50%;
+    box-shadow: 3px 5px 5px 3px rgba(0, 32, 100, 0.4);
+    width: 10rem;
+    height: 10rem;
+    background-image: url(/images/prh.jpg);
+  
+    background-size: cover;
+    background-position: center;
+   
+
+   
+}
+#text-container{
+    padding-left: 3rem;
+    box-shadow: 4px 5px 4px 1px rgba(0, 0, 0, 0.4);
+    flex: 1;
+    font-weight: bolder;
+    padding-top: 1.2rem;
+    font-size: 2.5rem;
+    background-color: rgba(255,255,255,.05);
+ 
+
+}
+@media screen and (max-width: 768px) {
+    #border-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 18rem; /* Adjust the maximum width as needed */
+      margin: 0 auto; /* Center the container horizontally */
+    }
+  
+    #image-container {
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+  }
+  @media screen and (max-width: 641px){
+    #image-container{
+        width: 8rem;
+        height: 8rem;
+    }
+    #content-grid{
+        width: 30rem;
+    }
+  }
+
+  @media screen and (max-width: 499px){
+    #image-container{
+        width: 7rem;
+        height: 7rem;
+    }
+    #content-grid{
+        width: 25rem;
+    }
+  }
+  @media screen and (max-width: 414px){
+    #image-container{
+        width: 6rem;
+        height: 6rem;
+    }
+    #content-grid{
+        width: 22rem;
+    }
+  }
+  
+
+/* ---------------IMAGES---------------------------------------------------------------------------------------------------------------------*/
+  .slideshow-container {
+    position: relative;
+    width: 70%;
+    
+    margin: auto;
+  }
+ 
+  .slideshow img {
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+    height: 40rem;
+    border-radius: .9rem;
+    box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, .5);
+    padding: 1rem;
+
+   
+    
+  }
+  .slideshow img.active {
+    opacity: 1;
+  }
+  
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .prev {
+    left: 0;
+  }
+  
+  .next {
+    right: 0;
+  }
+  
+  /* Hide the previous button on the first slide */
+  .slideshow-container .slideshow:first-child .prev {
+    display: none;
+  }
+  
+  /* Hide the next button on the last slide */
+  .slideshow-container .slideshow:last-child .next {
+    display: none;
+  }
+  
+  .arrow {
+    display: inline-block;
+    width: 48px; /* Increase width */
+    height: 48px; /* Increase height */
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 48px; /* Set line-height equal to height */
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+  }
+  
+/*footer content section*/
+
+#footer-header{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+#footer-header a{
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
+/* TABLE---------------------------------------*/
+
+
+
+/* this makes it horizontal */
+
+footer {
+    position: relative;
+    background-color: gray;
+    color: #fff;
+    padding: 2rem;
+    margin-top: 25rem;
+    box-shadow: 3px 15px 10px 3px rgba(0, 0, 0, .5);
+    width: 98%;
+    margin: auto;
+    margin-top: 10rem;
+   
+   
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer-container h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-navigation ul,
+  .footer-contact ul,
+  .footer-social ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-navigation li,
+  .footer-contact li,
+  .footer-social li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-navigation a,
+  .footer-contact li::before {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer-social a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 0.5rem;
+  }
+  
+  .footer-donate p {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-donate form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-donate input[type="text"] {
+    width: 200px;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .footer-donate button {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-left: 2px solid #fff;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+  }
+  
+  .footer-donate button:hover {
+    background-color: #fff;
+    color: #000099;
+  }
+  
+  .footer-contact li::before {
+    content: "|";
+    margin-right: 0.5rem;
+  }
+  
+  .footer-subscribe button {
+    /* Other styles */
+    padding-left: 0.5rem; /* Adjust padding to create space for the vertical bar */
+  }
+  
+  .footer-subscribe button::before {
+    content: "|";
+    display: inline-block;
+    margin-right: 0.5rem;
+    transform: translateY(-2px);
+  }
+
+ 
+ 
+/*about.html -------------------------*/
+/* media queries */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50rem;
+  margin: auto;
+  
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 300px 1fr;
+  grid-gap: 20px;
+  align-items: center;
+}
+
+.grid-right {
+  font-size: 2rem;
+  width: 100%
+}
+
+.grid-left {
+  font-size: 2rem;
+
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+
+  
+}
+
+.image-container img {
+    height: 300px;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    margin-top: 5rem;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-left {
+    margin-right: initial;
+    margin-bottom: 2rem;
+  }
+}
+
+/* about . html --------------------------------*/
+
+.about-content{
+    line-height: 3rem;
+    display: block;
+    font-size: 1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.02);
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+    margin-bottom: 5rem;
+    font-family: 'Roboto', sans-serif;
+    padding: 1.5rem;
+
+}
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#gray-color{
+    background-color: lightcyan
+}
+
+
+
+  @media (max-width: 796px) {
+    #content-header{
+        margin-top: 15rem;
+    }
+}
+/* contact page-----------------*/
+
+/* Contact section */
+#contact {
+    padding: 1rem;
+    box-shadow: 2px 1px 3px 4px rgba(0, 0, 0, 0.1);
+    
+    width: 50%;
+    margin: 10rem auto;
+    height: 30rem;
+   
+  }
+  
+  #contact h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    
+  }
+  
+  #contact form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 4rem auto;
+   
+  }
+  
+  #contact form div {
+    margin-bottom: 20px;
+    
+  }
+  
+  #contact form label {
+    font-weight: bold;
+  }
+  
+  #contact form input,
+  #contact form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: .5rem;
+    border: none;
+  }
+  
+  #contact form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #contact form button:hover {
+    background-color: #45a049;
+  }
+
+/* donate page -------------------------- */
+
+#donate {
+ 
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .3);
+    padding: 40px;
+    width: 50%;
+    margin: 10rem auto;
+    height: 30rem;
+    line-height: 2rem;
+    text-align: center;
+   
+  
+
+  }
+  
+  #donate h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  #donate-form {
+    margin-top: 20px;
+  }
+  
+
+  .donation-paypal,
+  .donation-creditcard {
+    margin-top: 20px;
+  }
+  
+
+ 
+.donate-message{
+  font-size: 1.4rem;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+ 
+}
+
+@media (max-width: 858px) {
+  #donate{
+    padding: 20px;
+    min-width: 20rem;
+  }
+}
+
+@media (max-width: 744px) {
+  #donate{
+    padding: 20px;
+    min-width: 25rem;
+  }
+}
+
+  @media (max-width: 592px) {
+    #donate{
+      padding: 10px;
+      width: 22rem;
+    }
+  }
+
+  @media (max-width: 592px) {
+    #donate{
+      padding: 10px;
+    }
+  }
